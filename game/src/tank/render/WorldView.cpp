@@ -11,7 +11,7 @@
 #include "video/RenderBase.h"
 #include "config/Config.h"
 
-WorldView::WorldView(IRender &render, TextureManager &tm, RenderScheme &rs)
+WorldView::WorldView(IRender &render, TextureManager &tm, const RenderScheme &rs)
     : _render(render)
     , _tm(tm)
     , _renderScheme(rs)

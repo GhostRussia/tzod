@@ -12,13 +12,14 @@ struct IRender;
 class WorldView
 {
 public:
-    WorldView(IRender &render, TextureManager &tm, RenderScheme &rs);
+    WorldView(IRender &render, TextureManager &tm, const RenderScheme &rs);
 	~WorldView();
 	void Render(DrawingContext &dc, World &world, const FRECT &view, bool editorMode) const;
+	const RenderScheme& GetRenderScheme() const { return _renderScheme; }
 
 private:
     IRender &_render;
     TextureManager &_tm;
-	RenderScheme &_renderScheme;
+	const RenderScheme &_renderScheme;
 	Terrain _terrain;
 };
