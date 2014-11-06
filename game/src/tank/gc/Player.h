@@ -1,17 +1,17 @@
 #pragma once
-#include "Service.h"
+#include "Object.h"
 #include <deque>
 
 class GC_Vehicle;
 
-#define GC_FLAG_PLAYER_ISHUMAN     (GC_FLAG_SERVICE_ << 0)
-#define GC_FLAG_PLAYER_            (GC_FLAG_SERVICE_ << 1)
+#define GC_FLAG_PLAYER_ISHUMAN     (GC_FLAG_OBJECT_ << 0)
+#define GC_FLAG_PLAYER_            (GC_FLAG_OBJECT_ << 1)
 
-class GC_Player : public GC_Service
+class GC_Player : public GC_Object
 {
     DECLARE_SELF_REGISTRATION(GC_Player);
 	DECLARE_LIST_MEMBER();
-    typedef GC_Service base;
+    typedef GC_Object base;
 	
 public:
 	GC_Player();
@@ -47,9 +47,9 @@ public:
 	virtual void TimeStep(World &world, float dt);
 
 protected:
-	class MyPropertySet : public GC_Service::MyPropertySet
+	class MyPropertySet : public GC_Object::MyPropertySet
 	{
-		typedef GC_Service::MyPropertySet BASE;
+		typedef GC_Object::MyPropertySet BASE;
 		
 		ObjectProperty _propTeam;
 		ObjectProperty _propScore;

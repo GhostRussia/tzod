@@ -45,7 +45,7 @@ GC_Player::~GC_Player()
 
 void GC_Player::Serialize(World &world, SaveFile &f)
 {
-	GC_Service::Serialize(world, f);
+	GC_Object::Serialize(world, f);
 
 	f.Serialize(_scriptOnDie);
 	f.Serialize(_scriptOnRespawn);
@@ -61,7 +61,7 @@ void GC_Player::Serialize(World &world, SaveFile &f)
 
 void GC_Player::MapExchange(MapFile &f)
 {
-	GC_Service::MapExchange(f);
+	GC_Object::MapExchange(f);
 	MAP_EXCHANGE_STRING(on_die, _scriptOnDie, "");
 	MAP_EXCHANGE_STRING(on_respawn, _scriptOnRespawn, "");
 	MAP_EXCHANGE_STRING(vehname, _vehname, "");
@@ -76,7 +76,7 @@ void GC_Player::Kill(World &world)
 {
 	if( _vehicle )
 		_vehicle->Kill(world); // the reference is released in the OnVehicleKill()
-	GC_Service::Kill(world);
+	GC_Object::Kill(world);
 }
 
 void GC_Player::SetSkin(const std::string &skin)
@@ -156,7 +156,7 @@ static GC_SpawnPoint* SelectRespawnPoint(World &world, int team)
 
 void GC_Player::TimeStep(World &world, float dt)
 {
-	GC_Service::TimeStep(world, dt);
+	GC_Object::TimeStep(world, dt);
 
 	if( !GetVehicle() )
 	{

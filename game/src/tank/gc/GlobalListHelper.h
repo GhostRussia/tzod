@@ -9,7 +9,6 @@ enum GlobalListID
 {
 	LIST_objects,
     LIST_timestep,
-	LIST_services,
 	LIST_respawns,
 	LIST_players,
 	LIST_indicators,

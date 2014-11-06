@@ -359,7 +359,7 @@ void ServiceListDataSource::RemoveListener(ListDataSourceListener *listener)
 
 int ServiceListDataSource::GetItemCount() const
 {
-	return _world.GetList(LIST_services).size();
+	return _world.GetList(LIST_players).size();
 }
 
 int ServiceListDataSource::GetSubItemCount(int index) const
@@ -369,13 +369,13 @@ int ServiceListDataSource::GetSubItemCount(int index) const
 
 size_t ServiceListDataSource::GetItemData(int index) const
 {
-	auto it = _world.GetList(LIST_services).begin();
+	auto it = _world.GetList(LIST_players).begin();
 	for( int i = 0; i < index; ++i )
 	{
-		it = _world.GetList(LIST_services).next(it);
-		assert(_world.GetList(LIST_services).end() != it);
+		it = _world.GetList(LIST_players).next(it);
+		assert(_world.GetList(LIST_players).end() != it);
 	}
-	return (size_t) _world.GetList(LIST_services).at(it);
+	return (size_t) _world.GetList(LIST_players).at(it);
 }
 
 const std::string& ServiceListDataSource::GetItemText(int index, int sub) const
@@ -411,7 +411,7 @@ void ServiceListDataSource::OnKill(GC_Object &obj)
 {
 	if (obj.GetType() == GC_Player::GetTypeStatic())
 	{
-		ObjectList &list = _world.GetList(LIST_services);
+		ObjectList &list = _world.GetList(LIST_players);
 		int found = -1;
 		int idx = 0;
 		for( auto it = list.begin(); it != list.end(); it = list.next(it) )

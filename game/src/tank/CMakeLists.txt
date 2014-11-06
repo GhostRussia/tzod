@@ -78,7 +78,6 @@ set(tank_SOURCES
 	gc/RigidBody.cpp
 	gc/RigidBodyDynamic.cpp
 	gc/Rotator.cpp
-	gc/Service.cpp
 	gc/Trigger.cpp
 	gc/Turrets.cpp
 	gc/TypeSystem.cpp
